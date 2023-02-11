@@ -35,6 +35,21 @@
         app:layout_constraintVertical_bias="0.8">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/edit_text_bg"
+            android:paddingLeft="7pt"
+            android:hint="Username"
+            android:height="45dp"
+            app:layout_constraintWidth_percent=".8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_pager"
+            android:textColor="@color/black"/>
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
