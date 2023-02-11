@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         //Initialise intent results
         IntentResult intentResult = IntentIntegrator.parseActivityResult(
-                requestCode, requestCode, data
+                requestCode, resultCode, data
         );
         //Check condition
         if (intentResult.getContents() != null){
