@@ -16,4 +16,6 @@
     <string name="click_to_login">click_to_login</string>
     <string name="logout">logout</string>
     <string name="click_to_register">click_to_register</string>
+    <string name="Username">username</string>
+    <string name="username">username</string>
 </resources>
