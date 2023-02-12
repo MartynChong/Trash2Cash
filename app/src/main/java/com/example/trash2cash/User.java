@@ -1,16 +1,23 @@
 package com.example.trash2cash;
 
 public class User {
-    String username, email;
-    int points;
+    String username, email, points;
 
     public User() {
     }
 
-    public User(String username, String email) {
+    public User(String username, String email, String points) {
         this.username = username;
         this.email = email;
-        this.points = 0;
+        this.points = points;
+    }
+
+    public String getPoints() {
+        return points;
+    }
+
+    public void setPoints(String points) {
+        this.points = points;
     }
 
     public String getUsername() {
