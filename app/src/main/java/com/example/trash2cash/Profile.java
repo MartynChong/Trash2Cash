@@ -36,6 +36,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         TextView profile = (TextView) findViewById(R.id.profile);
+        TextView emailAdd = (TextView) findViewById(R.id.emailAdd);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -51,6 +52,7 @@ public class Profile extends AppCompatActivity {
                     }
                 }
                 profile.setText(username + "'s Profile" );
+                emailAdd.setText("Email: " + email);
             }
 
             @Override

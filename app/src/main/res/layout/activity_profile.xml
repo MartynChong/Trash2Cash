@@ -20,22 +20,35 @@
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0" >
 
-    <TextView
-        android:id="@+id/profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left|center"
-        android:fontFamily="@font/montserrat_bold"
-        android:paddingHorizontal="30dp"
-        android:text="texttext"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/mainCard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/mainCard"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginLeft="100dp"
+            android:layout_marginBottom="20dp"
+            android:paddingHorizontal="30dp"
+            android:text="texttext"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/emailAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="60dp"
+            android:paddingHorizontal="30dp"
+            android:text="email"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
