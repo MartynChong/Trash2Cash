@@ -17,9 +17,9 @@
         <activity
             android:name=".Profile"
             android:exported="false" />
-        <!-- <activity -->
-        <!-- android:name=".Store" -->
-        <!-- android:exported="false" /> -->
+         <activity
+         android:name=".Store"
+         android:exported="false" />
         <activity
             android:name=".Capture"
             android:screenOrientation="portrait"

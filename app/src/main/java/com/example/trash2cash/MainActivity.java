@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference reference = db.getReference().child("Users").child("username");
 
     CardView btScan;
+    CardView pointsStore;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,6 +136,16 @@ public class MainActivity extends AppCompatActivity {
                 intentIntegrator.setCaptureActivity(Capture.class);
                 //Initiate scan
                 intentIntegrator.initiateScan();
+            }
+        });
+
+        pointsStore = findViewById(R.id.spendPoints);
+        pointsStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Store.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
