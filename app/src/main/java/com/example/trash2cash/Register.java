@@ -31,6 +31,8 @@ import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 
+import kotlin.reflect.KFunction;
+
 public class Register extends AppCompatActivity {
 
     TextInputEditText editTextUsername, editTextEmail, editTextPassword;
@@ -77,11 +79,12 @@ public class Register extends AppCompatActivity {
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email, password, username;
+                String email, password, username, points;
 
                 username = editTextUsername.getText().toString();
                 email = editTextEmail.getText().toString();
                 password = editTextPassword.getText().toString();
+                points = "0";
 
                 if (TextUtils.isEmpty(username)){
                     Toast.makeText(Register.this, "Enter username", Toast.LENGTH_SHORT).show();
@@ -102,7 +105,7 @@ public class Register extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Map<String, Object> user = new HashMap<>();
-                                    user.put(username, new User(username, email));
+                                    user.put(username, new User(username, email, points));
                                     db = FirebaseDatabase.getInstance("https://trash2cash-82489-default-rtdb.europe-west1.firebasedatabase.app/");
                                     reference = db.getReference("Users");
                                     reference.child("username").updateChildren(user).addOnCompleteListener(new OnCompleteListener<Void>() {
