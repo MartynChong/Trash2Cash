@@ -40,6 +40,7 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         TextView profile = (TextView) findViewById(R.id.profile);
         TextView emailAdd = (TextView) findViewById(R.id.emailAdd);
+        TextView pointS = (TextView) findViewById(R.id.points);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -56,6 +57,7 @@ public class Profile extends AppCompatActivity {
                 }
                 profile.setText(username + "'s Profile" );
                 emailAdd.setText("Email: " + "\n" + email);
+                pointS.setText("Points: " + points);
             }
 
             @Override
@@ -70,6 +72,16 @@ public class Profile extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        ImageView back = (ImageView) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
             }

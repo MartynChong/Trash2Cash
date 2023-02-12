@@ -199,6 +199,9 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialogInterface, int i) {
                     //Dismiss dialog
                     dialogInterface.dismiss();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             });
             //Show alert dialog
