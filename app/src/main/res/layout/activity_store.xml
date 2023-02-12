@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Store">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mainCard"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="-30dp"
+        app:cardBackgroundColor="#bafc73"
+        app:cardCornerRadius="15dp"
+        app:cardMaxElevation="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="128dp"
+        app:layout_constraintTop_toBottomOf="@+id/mainCard"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView2">
+
+
+            <RelativeLayout
+                android:id="@+id/relativelayout"
+                android:layout_width="300dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:layout_marginVertical="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="186dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/hnm" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginVertical="15dp"
+                    android:backgroundTint="#E6FFFFFF">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="$30 H&amp;M gift card - 400 points"
+                        android:fontFamily="@font/montserrat_light"
+                        android:textColor="@color/black"
+                        android:paddingTop="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"/>
+
+
+
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativelayout2"
+                android:layout_width="300dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:layout_marginVertical="5dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="186dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/starbucks" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginVertical="15dp"
+                    android:backgroundTint="#E6FFFFFF">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="1x Starbucks drink - 100 points"
+                        android:fontFamily="@font/montserrat_light"
+                        android:textColor="@color/black"
+                        android:paddingTop="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"/>
+
+
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+            <RelativeLayout
+            android:id="@+id/relativelayout3"
+            android:layout_width="300dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="5dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="186dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ubereats" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="210dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginVertical="15dp"
+                android:backgroundTint="#E6FFFFFF">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="15% off Ubereats - 300 points"
+                    android:fontFamily="@font/montserrat_light"
+                    android:textColor="@color/black"
+                    android:paddingTop="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
