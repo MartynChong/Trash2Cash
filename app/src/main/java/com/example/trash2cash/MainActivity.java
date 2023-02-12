@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
+import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -26,6 +27,7 @@ import com.google.zxing.integration.android.IntentResult;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,18 +35,22 @@ public class MainActivity extends AppCompatActivity {
 
     Button button;
     FirebaseAuth auth;
-    TextView textView;
+    TextView pointsText, welcomeText;
     FirebaseUser user;
+    CardView scanQR;
+    CardView points;
+    CardView spendPoints;
+    ImageView menu;
+    ImageView profile;
 
-    Button btScan;
+
+    CardView scanPoints;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         auth = FirebaseAuth.getInstance();
-        button = findViewById(R.id.logout);
-        textView = findViewById(R.id.user_details);
         user = auth.getCurrentUser();
         if (user == null){
             Intent intent = new Intent(getApplicationContext(), Login.class);
@@ -52,21 +58,21 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         else {
-            textView.setText(user.getEmail());
+            pointsText.setText(user.getEmail()); //GetPoints
+            welcomeText.setText("Welcome back, \n"+user.getDisplayName());
         }
 
-        button.setOnClickListener(new View.OnClickListener() {
+        spendPoints.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), Store.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        btScan = findViewById(R.id.bt_scan);
-        btScan.setOnClickListener(new View.OnClickListener() {
+        scanQR = findViewById(R.id.scanQR);
+        scanQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 IntentIntegrator intentIntegrator = new IntentIntegrator(
