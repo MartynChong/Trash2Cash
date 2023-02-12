@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
+import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -34,6 +35,7 @@ import com.google.zxing.integration.android.IntentResult;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,9 +46,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button;
+//    Button button;
     FirebaseAuth auth;
-    TextView textView;
     FirebaseUser user;
 
     int points, total;
@@ -59,36 +60,65 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance("https://trash2cash-82489-default-rtdb.europe-west1.firebasedatabase.app/");
     DatabaseReference reference = db.getReference().child("Users").child("username");
 
-    Button btScan;
+    CardView btScan;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView tView1 = findViewById(R.id.welcomeText);
+        TextView tView2 = findViewById(R.id.pointsText);
 
         auth = FirebaseAuth.getInstance();
-        button = findViewById(R.id.logout);
-        textView = findViewById(R.id.user_details);
         user = auth.getCurrentUser();
-        if (user == null){
-            Intent intent = new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
-            finish();
-        }
-        else {
-            textView.setText(user.getEmail());
-        }
 
-        button.setOnClickListener(new View.OnClickListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (snapshot.child("email").getValue().toString().equals(user.getEmail())) {
+                        points = Integer.parseInt(snapshot.child("points").getValue().toString());
+                        username = snapshot.child("username").getValue().toString();
+                        email = snapshot.child("email").getValue().toString();
+                    }
+                }
+                tView1.setText("Welcome back, " + username);
+                tView2.setText("Points:  " + points);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+//        if (user == null){
+//            Intent intent = new Intent(getApplicationContext(), Login.class);
+//            startActivity(intent);
+//            finish();
+//        }
+
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(getApplicationContext(), Login.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+
+        ImageView menuView = findViewById(R.id.profileIcon);
+        menuView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), Profile.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        btScan = findViewById(R.id.bt_scan);
+        btScan = findViewById(R.id.scanQR);
         btScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
